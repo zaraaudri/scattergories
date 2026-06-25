@@ -13,15 +13,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/zaraaudri/scattergories/issues"
   },
   "homepage": "https://github.com/zaraaudri/scattergories#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "express": "^5.2.1"
-=======
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "dotenv": "^17.4.2",
@@ -29,9 +26,8 @@
     "prisma": "^7.8.0"
   },
   "devDependencies": {
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^6.0.3"
->>>>>>> f11b8fbf5734b49b586bc3f4dbcafe802e6dbd66
   }
 }
