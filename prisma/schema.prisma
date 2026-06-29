@@ -1,29 +1,28 @@
-generator client {
-  provider = "prisma-client-js"
+\* generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
-model Game {
-  id       Int      @id @default(autoincrement())
-  roomCode String   @unique
-  letter   String
-  topic    String
-  answers  Answer[]
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model answer {
+  id       Int?
+  gameId   Int?
+  username String?
+  answer   String?
 
-  @@map("games")
+  @@ignore
 }
 
-model Answer {
-  id       Int    @id @default(autoincrement())
-  answer   String
-  username String
-  gameId   Int
-  game     Game   @relation(fields: [gameId], references: [id]) 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model games {
+  id       Int?
+  roomCode String? @unique(map: "games_room_code_unique")
+  letter   String?
+  topic    String?
 
-  @@unique([gameId, answer])
-  @@map("answer")
-}
+  @@ignore
+} */
