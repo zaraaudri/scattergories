@@ -9,20 +9,20 @@ datasource db {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model answer {
-  id       Int     @id
   gameId   Int?
   username String?
   answer   String?
+  id       String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
   @@ignore
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model games {
-  id       Int     @id
   roomCode String? @unique(map: "games_room_code_unique")
   letter   String?
   topic    String?
+  id       String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
   @@ignore
 }
